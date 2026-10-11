@@ -1,0 +1,294 @@
+<!--------- 1. palindrome -------------------->
+
+<?php
+$num=1331;
+$rev=0;
+$n=$num;
+while($n>0){
+    $d=$n%10;
+    $rev=$rev*10+$d;
+    $n=floor($n/10);
+}
+if($num==$rev){
+ echo "not palindrome";
+}
+?>
+
+<!--------- 2. Armstronge -------------------->
+
+<?php
+$num=1536;
+$sum=0;
+$n=$num;
+while($n>0){
+    $d=$n%10;
+    $sum=$sum+($d*$d*$d);
+    $n=floor($n/10);
+}
+if($num==$sum){
+    echo "Armstronge";
+}else{
+    echo "Not Armstronge";
+}
+?>
+
+<!--------- 3. Total number count -------------------->
+
+<?php
+$n=153277;
+$sum=0;
+while($n>0){
+    $d=$n%10;
+    $sum=$sum+1;
+    $n=floor($n/10);
+}
+echo $sum;
+?>
+
+<!--------- 4.Sum of Total number -------------------->
+
+<?php
+$n=15327;
+$sum=0;
+while($n>0){
+    $d=$n%10;
+    $sum=$sum+$d;
+    $n=floor($n/10);
+}
+echo $sum;
+?>
+
+<!--------- 5.multiple of Total number -------------------->
+
+<?php
+$n=15327;
+$sum=1;
+while($n>0){
+    $d=$n%10;
+    $sum=$sum*$d;
+    $n=floor($n/10);
+}
+echo $sum;
+?>
+
+
+<!--------- 6. prime number ---------->
+
+<?php
+$n=23;
+$num=0;
+for($i=2; $i<$n; $i++){
+if($n%$i==0){
+   $num++;
+   break;
+}
+}
+if($num==0){
+   echo "prime";
+}else{
+   echo "not prime";
+}
+?>
+
+<!--------- 6. prime number 1 to 100  ---------->
+
+<?php
+
+for($n=2; $n<=100; $n++){ 
+    $num=0;
+    for($i=2; $i<$n; $i++){
+        if($n%$i==0){
+           $num++;
+           break;
+        }
+    }
+    if($num==0){
+       echo $n . " "; 
+    }
+}
+echo "\n";  
+?>
+<!----------- 7. Factorial --------->
+
+<?php
+$n=5;
+$fact=1;
+for($i=1; $i<=$n; $i++){
+    $fact=$fact*$i;
+    
+}
+echo $fact;
+?>
+
+<!-------- 8. Fibonacci Series -------->
+
+<?php
+$n = 7;
+$a = 0;
+$b = 1;
+for ($i = 0; $i <= $n; $i++) {
+    echo $a; 
+    $c = $a + $b;
+    $a = $b;
+    $b = $c;
+}
+?>
+
+<!--9. Max number in Array  -->
+
+<?php
+$a=array(10,23,8,43,21,12);
+$len=count($a);
+$max=$a[0];
+for($i=0; $i<$len; $i++){
+    if($max<$a[$i]){
+      $max=$a[$i];
+    }
+}
+echo $max;
+?>
+
+<!--10. Min number in Array  -->
+
+<?php
+$a=array(10,23,8,43,21,12);
+$len=count($a);
+$min=$a[0];
+for($i=0; $i<$len; $i++){
+    if($min>$a[$i]){
+      $min=$a[$i];
+    }
+}
+echo $min;
+?>
+
+<!------11. 2nd Max and Min number in Array  ------->
+
+<?php
+$a = array(10, 23, 8,11 ,28,9,43, 21, 12);
+$len = count($a);
+for($i = 0; $i < $len; $i++){
+    for($j = $i + 1; $j < $len; $j++){
+        if($a[$i] < $a[$j]){  
+            $temp = $a[$i];
+            $a[$i] = $a[$j];
+            $a[$j] = $temp;
+        }
+    }
+}
+
+echo 'max=' . $a[1] . "<br>";
+echo 'min=' . $a[$len - 2];
+?>
+
+<!---------- 12. rev string ----------->
+
+<?php
+function rev($str){
+  $reversed='';
+  $i=0;
+  while(isset($str[$i])){
+    $reversed=$str[$i].$reversed;
+    $i++;
+  }
+  return $reversed;
+}
+$input="hello";
+$reversed=rev($input);
+echo $reversed;
+?>
+
+<!-----------13. palindrome string  ------------->
+
+<?php
+function rev($str){
+  $reversed='';
+  $i=0;
+  while(isset($str[$i])){
+    $reversed=$str[$i].$reversed;
+    $i++;
+  }
+  return $reversed;
+}
+$input="txt";
+$reversed=rev($input);
+
+
+if($reversed==$input){
+echo "palindrome";
+}else{
+  echo "not palindrome";
+}
+?>
+
+
+<!-----------13. palindrome string sentance ------------->
+
+<?php
+function rev($str){
+  $words = explode(' ', $str);  
+  $reversed = '';
+  $i = count($words) - 1;      
+
+  while ($i >= 0) {
+    $reversed .= $words[$i];   
+    if ($i > 0) $reversed .= ' '; 
+    $i--;
+  }
+
+  return $reversed;
+}
+
+$input = "hello well what jhjh";
+$reversed = rev($input);
+echo $reversed;
+?>
+
+<!-- 14. remove duplicate elemrnt in a Array -->
+
+<?php
+$n=array(12,3,4,2,1,2,12,3);
+$uni=[];
+foreach($n as $no){
+  if(!in_array($no,$uni)){
+    $uni[]=$no;
+  }
+}
+echo "<pre>";
+print_r($uni);
+echo "</pre>";
+?>
+
+<!-- 15. array odd number -->
+
+
+<?php
+$a=array(2,3,4,8,5,6,7);
+$b=[];
+$len=count($a);
+for($i=0; $i<=$len; $i++){
+  if($a[$i]%2==0){
+$b[]=$a[$i];
+  }
+}
+print_r($b);
+?>
+
+<!-- frequency of number -->
+
+<?php
+$n = array(12, 34, 55, 12, 45, 12, 45);
+$freq = [];
+
+foreach ($n as $num) {
+  if (isset($freq[$num])) {
+    $freq[$num]++;
+  } else {
+    $freq[$num] = 1;
+  }
+}
+
+echo "<pre>";
+print_r($freq);
+echo "</pre>";
+?>
